@@ -35,3 +35,4 @@ build/
 
 ### Key ###
 .key
+*.key
