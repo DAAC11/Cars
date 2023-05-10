@@ -64,7 +64,7 @@ public class CarService {
             return car;
         }
     }
-
+    /*
     public boolean delete(int id){
         boolean flag = false;
         Optional<Car> c = carRepository.getCar(id);
@@ -73,6 +73,16 @@ public class CarService {
             flag = true;
         }
         return flag;
+    }*/
+    public List<Car> delete(int id){
+        boolean flag = false;
+        Optional<Car> c = carRepository.getCar(id);
+        if(c.isPresent()){
+            carRepository.delete(c.get());
+            flag = true;
+        }
+        return getAll();
     }
+
 
 }

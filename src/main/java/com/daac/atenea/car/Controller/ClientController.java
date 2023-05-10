@@ -36,8 +36,16 @@ public class ClientController {
     public Client update(@RequestBody Client client){
         return clientService.update(client);
     }
+
+    /*
     @DeleteMapping("/{id}")
     public boolean delete(@PathVariable("id") int id){
         return clientService.delete(id);
+    }*/
+    @DeleteMapping("/{id}")
+    public List<Client> delete(@PathVariable("id") int id){
+        clientService.delete(id);
+        return getClients();
     }
+
 }

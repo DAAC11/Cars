@@ -58,6 +58,7 @@ public class GamaService {
         }
     }
 
+    /*
     public boolean delete(int id) {
         boolean flag = false;
         Optional<Gama> c = gamaRepository.getGama(id);
@@ -66,5 +67,17 @@ public class GamaService {
             flag = true;
         }
         return flag;
+    }*/
+
+    //Reto 4
+    public List<Gama> delete(int id) {
+        boolean flag = false;
+        Optional<Gama> c = gamaRepository.getGama(id);
+        if (c.isPresent()) {
+            gamaRepository.delete(c.get());
+            flag = true;
+        }
+        return getAll();
     }
+
 }

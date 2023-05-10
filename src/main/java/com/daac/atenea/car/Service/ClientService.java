@@ -63,6 +63,8 @@ public class ClientService {
             return client;
         }
     }
+
+    /*
     public boolean delete (int id){
         boolean flag = false;
         Optional<Client>c= clientRepository.getClient(id);
@@ -71,5 +73,16 @@ public class ClientService {
             flag =true;
         }
         return flag;
+    }*/
+
+    //Reto 4
+    public List<Client> delete (int id){
+        boolean flag = false;
+        Optional<Client>c= clientRepository.getClient(id);
+        if (c.isPresent()){
+            clientRepository.delete(c.get());
+            flag =true;
+        }
+        return getAll();
     }
 }

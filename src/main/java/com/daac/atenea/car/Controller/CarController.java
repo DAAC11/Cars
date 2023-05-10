@@ -38,8 +38,14 @@ public class CarController {
         return carService.update(car);
     }
 
+    /*
     @DeleteMapping("/{id}")
     public boolean delete(@PathVariable("id") int id){
         return carService.delete(id);
+    }*/
+    @DeleteMapping("/{id}")
+    public List<Car> delete(@PathVariable("id") int id){
+        carService.delete(id);
+        return getCars();
     }
 }
