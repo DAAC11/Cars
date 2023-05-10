@@ -12,35 +12,44 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/Reservation")
-@CrossOrigin(origins = "*",methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class ReservationController {
 
     @Autowired
     private ReservationService reservationService;
 
     @GetMapping("/all")
-    public List<Reservation> getReservatios(){
+    public List<Reservation> getReservatios() {
         return reservationService.getAll();
     }
+
     @GetMapping("/{id}")
-    public Optional<Reservation> getReservation(@PathVariable("id")int id){
+    public Optional<Reservation> getReservation(@PathVariable("id") int id) {
         return reservationService.getReservation(id);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Reservation save(@RequestBody Reservation reservation){
+    public Reservation save(@RequestBody Reservation reservation) {
         return reservationService.save(reservation);
     }
 
     @PutMapping("/update")
-    public Reservation update(@RequestBody Reservation reservation){
+    public Reservation update(@RequestBody Reservation reservation) {
         return reservationService.update(reservation);
     }
 
     @DeleteMapping("/{id}")
-    public boolean delete(@PathVariable("id") int id){
+    public boolean delete(@PathVariable("id") int id) {
         return reservationService.delete(id);
+    }
+
+    //Reto 5
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservationsReportDates(
+            @PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String
+            dateTwo) {
+        return reservationService.getReservationsPeriod(dateOne, dateTwo);
     }
 
 
