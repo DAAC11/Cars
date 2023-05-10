@@ -34,6 +34,7 @@ public class CarController {
     }
 
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Car update(@RequestBody Car car){
         return carService.update(car);
     }
@@ -44,6 +45,7 @@ public class CarController {
         return carService.delete(id);
     }*/
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public List<Car> delete(@PathVariable("id") int id){
         carService.delete(id);
         return getCars();
