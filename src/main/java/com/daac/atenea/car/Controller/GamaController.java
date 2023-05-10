@@ -45,7 +45,7 @@ public class GamaController {
 
     //Reto 4
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public List<Gama> delete(@PathVariable("id")int id){
         gamaService.delete(id);
         return getGamas();
