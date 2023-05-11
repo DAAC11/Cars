@@ -5,6 +5,7 @@ import com.daac.atenea.car.entities.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -36,7 +37,5 @@ public class ReservationRepository {
                 reservationCrudRepository.findAllByStartDateAfterAndStartDateBefore(a,b);
     }
 
-    public List<Reservation> getStatusCount(){
-        return  reservationCrudRepository.statusCount();
-    }
+
 }

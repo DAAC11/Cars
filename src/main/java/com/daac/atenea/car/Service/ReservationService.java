@@ -95,7 +95,6 @@ public class ReservationService {
             return new ArrayList<>();
         }
     }
-    public List<Reservation> getStatusCount(){
-        return reservationRepository.getStatusCount();
-    }
+
+
 }
