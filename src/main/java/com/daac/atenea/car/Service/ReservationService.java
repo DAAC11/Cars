@@ -85,7 +85,7 @@ public class ReservationService {
         Date b = new Date();
         try{
             a = parser.parse(dateA);
-            a = parser.parse(dateB);
+            b = parser.parse(dateB);
         }catch (ParseException e){
             e.printStackTrace();
         }
@@ -95,5 +95,7 @@ public class ReservationService {
             return new ArrayList<>();
         }
     }
-
+    public List<Reservation> getStatusCount(){
+        return reservationRepository.getStatusCount();
+    }
 }

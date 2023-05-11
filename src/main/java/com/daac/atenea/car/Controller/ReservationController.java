@@ -19,7 +19,7 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @GetMapping("/all")
-    public List<Reservation> getReservatios() {
+    public List<Reservation> getReservations() {
         return reservationService.getAll();
     }
 
@@ -50,6 +50,11 @@ public class ReservationController {
             @PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String
             dateTwo) {
         return reservationService.getReservationsPeriod(dateOne, dateTwo);
+    }
+
+    @GetMapping("report-status")
+    public List<Reservation> getStatusCount(){
+        return reservationService.getStatusCount();
     }
 
 

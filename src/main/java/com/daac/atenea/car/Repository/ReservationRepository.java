@@ -35,4 +35,8 @@ public class ReservationRepository {
         return
                 reservationCrudRepository.findAllByStartDateAfterAndStartDateBefore(a,b);
     }
+
+    public List<Reservation> getStatusCount(){
+        return  reservationCrudRepository.statusCount();
+    }
 }
