@@ -29,4 +29,7 @@ public class GamaRepository {
     public void delete(Gama gama){
         gamaCrudRepository.delete(gama);
     }
+
+    public static class CountClient {
+    }
 }

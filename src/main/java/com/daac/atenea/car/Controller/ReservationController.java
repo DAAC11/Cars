@@ -1,6 +1,8 @@
 package com.daac.atenea.car.Controller;
 
+import com.daac.atenea.car.Repository.CountClient;
 import com.daac.atenea.car.Service.ReservationService;
+import com.daac.atenea.car.Service.Status;
 import com.daac.atenea.car.entities.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,5 +53,13 @@ public class ReservationController {
         return reservationService.getReservationsPeriod(dateOne, dateTwo);
     }
 
+    @GetMapping("/report-clients")
+    public List<CountClient> getReservationsReportClient(){
+        return reservationService.getTopClients();
+    }
 
+    @GetMapping("/report-status")
+    public Status getReservationsStatusReport(){
+        return reservationService.getReservationStatusReport();
+    }
 }

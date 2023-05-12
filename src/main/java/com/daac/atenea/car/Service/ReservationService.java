@@ -1,5 +1,6 @@
 package com.daac.atenea.car.Service;
 
+import com.daac.atenea.car.Repository.CountClient;
 import com.daac.atenea.car.Repository.ReservationRepository;
 import com.daac.atenea.car.entities.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,7 +95,17 @@ public class ReservationService {
         }else {
             return new ArrayList<>();
         }
+
+
     }
 
+    public List<CountClient> getTopClients(){
+        return reservationRepository.getTopClient();
+    }
 
+    public Status getReservationStatusReport(){
+        List<Reservation> completed = reservationRepository.getReservationByStatus("completed");
+        List<Reservation> cancelled = reservationRepository.getReservationByStatus("cancelled");
+        return new Status(completed.size(),cancelled.size());
+    }
 }
